@@ -12,6 +12,10 @@ A node can be launched using the following docker command:
 
 ```docker run --rm -it -v ${PWD}/data:/algod/data --name my_voi_node xarmian/voinode```
 
+To enable Telemetry add the environment variable TELEMETRY_NAME, i.e.:
+
+```docker run --rm -it -v ${PWD}/data:/algod/data -e TELEMETRY_NAME=my_voi_node --name my_voi_node xarmian/voinode```
+
 This command will create a Voi network node container named `my_voi_node` and map the node's data directory to a folder named "data" inside the user's current working directory.
 
 NOTICE: This image is supplied without warranty.
