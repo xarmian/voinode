@@ -18,4 +18,6 @@ To enable Telemetry add the environment variable TELEMETRY_NAME, i.e.:
 
 This command will create a Voi network node container named `my_voi_node` and map the node's data directory to a folder named "data" inside the user's current working directory.
 
+For more information on the configuration options available, please see the official Algorand node documentation here: https://hub.docker.com/r/algorand/algod
+
 NOTICE: This image is supplied without warranty.
