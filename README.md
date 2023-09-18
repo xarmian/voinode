@@ -4,7 +4,8 @@ This docker image modifies the official algod docker container found at https://
 
 1. It sets the default network to voitest-v1 and enables Fast Catchup
 2. It updates the config.json by setting GossipFanout, DNSBootstrapID, and EnableCatchupFromArchiveServers
-2. It updates the genesis.json file to the Voi TestNet Network's Genesis file
+3. It updates the genesis.json file to the Voi TestNet Network's Genesis file
+4. Installs `jq` package to make bringing your account online a bit easier
 
 All environment variable options for the Algorand official docker container are available in this image.
 
@@ -44,7 +45,7 @@ Use the following command to launch an interactive CLI session. This will allow 
 ```docker exec -it my_voi_node bash```
 
 # Consensus Participation #
-To use your node for consensus participation, follow the guide located in the `Participation` section at the following URL: https://d13.co/posts/set-up-voi-participation-node/#participation
+To use your node for consensus participation, launch into the Interactive shell (described in the section above) and follow the guide located in the `Participation` section at the following URL: https://d13.co/posts/set-up-voi-participation-node/#participation
 
 For more information on the configuration options available, please see the official Algorand node documentation here: https://hub.docker.com/r/algorand/algod
 
