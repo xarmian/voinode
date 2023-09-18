@@ -39,6 +39,13 @@ docker run -d \
 ```
 This will launch your telemetry-enabled container in the background and automatically restart the container if it is stopped. Replace `my_voi_node` in the `--name` parameter to give your container a name you will recognize, and in the `-e TELEMETRY_NAME=` environment variable to report a specific name to the telemetry aggregator.
 
+# Interacting with algod #
+Use the following command to launch an interactive CLI session. This will allow you to execute commands such as `goal`. Replace `my_voi_node` with the name of your container:
+```docker exec -it my_voi_node bash```
+
+# Consensus Participation #
+To use your node for consensus participation, follow the guide located in the `Participation` section at the following URL: https://d13.co/posts/set-up-voi-participation-node/#participation
+
 For more information on the configuration options available, please see the official Algorand node documentation here: https://hub.docker.com/r/algorand/algod
 
 NOTICE: This image is supplied without warranty.
