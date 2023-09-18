@@ -1,3 +1,5 @@
+# Voi Testnet Node #
+
 This docker image modifies the official algod docker container found at https://hub.docker.com/r/algorand/algod to be used for the Voi TestNet Network. It makes the following changes to the official image:
 
 1. It sets the default network to voitest-v1 and enables Fast Catchup
@@ -8,15 +10,34 @@ All environment variable options for the Algorand official docker container are 
 
 Currently only the `algorand/algod:latest` branch is available using this image.
 
-A node can be launched using the following docker command:
+# Getting Started #
+
+A node container can be launched using the following docker command:
 
 ```docker run --rm -it -v ${PWD}/data:/algod/data --name my_voi_node xarmian/voinode```
 
-To enable Telemetry add the environment variable TELEMETRY_NAME, i.e.:
+This command will create a Voi network node container named `my_voi_node` and map the node's data directory to a folder named "data" inside the user's current working directory.
+
+NOTE: The container's log will be output to the terminal, the container will be removed when stopped, and it will not resume on restart. Therefore it is not feasible to operate a production node using this command (see `Putting it all together` section below)
+
+# Adding Telemetry #
+
+To enable Telemetry reporting, add the environment variable TELEMETRY_NAME, i.e.:
 
 ```docker run --rm -it -v ${PWD}/data:/algod/data -e TELEMETRY_NAME=my_voi_node --name my_voi_node xarmian/voinode```
 
-This command will create a Voi network node container named `my_voi_node` and map the node's data directory to a folder named "data" inside the user's current working directory.
+# Putting it all together #
+
+To make the container more resilient, launch the container using the parameter `--restart=unless-stopped` and use the `-d` flag as follows:
+```
+docker run -d \
+    --name my_voi_node \
+    --restart=unless-stopped -d \
+    -e TELEMETRY_NAME=my_voi_node \
+    -v ${PWD}/data:/algod/data \
+    xarmian/voinode
+```
+This will launch your telemetry-enabled container in the background and automatically restart the container if it is stopped. Replace `my_voi_node` in the `--name` parameter to give your container a name you will recognize, and in the `-e TELEMETRY_NAME=` environment variable to report a specific name to the telemetry aggregator.
 
 For more information on the configuration options available, please see the official Algorand node documentation here: https://hub.docker.com/r/algorand/algod
 
