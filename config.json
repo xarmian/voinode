@@ -1,5 +1,4 @@
 {
-	"GossipFanout": 8,
 	"EndpointAddress": "0.0.0.0:8080",
 	"DNSBootstrapID": "<network>.voi.network",
 	"EnableCatchupFromArchiveServers": true
