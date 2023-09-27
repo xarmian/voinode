@@ -7,6 +7,11 @@ This docker image modifies the official algod docker container found at https://
 3. It updates the genesis.json file to the Voi TestNet Network's Genesis file
 4. Installs `jq` package to make bringing your account online a bit easier
 
+There are currently images built for the following two architectures. If you require a different architecture, please submit an github issue.
+
+`xarmian/voinode:amd64` - amd64 architecture
+`xarmian/voinode:latest` - arm64 architecture
+
 All environment variable options for the Algorand official docker container are available in this image.
 
 Currently only the `algorand/algod:latest` branch is available using this image.
