@@ -1,0 +1,9 @@
+services:
+  algod:
+    image: "xarmian/voinode:latest"
+    container_name: my_voi_node
+    volumes:
+     - ./data:/algod/data
+    #environment:
+    # - TELEMETRY_NAME=my_voi_node
+    restart: on-failure

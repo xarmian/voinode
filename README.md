@@ -1,10 +1,10 @@
-# Voi Testnet Node #
+# Voi Mainnet Node #
 
-This docker image modifies the official algod docker container found at https://hub.docker.com/r/algorand/algod to be used for the Voi TestNet Network. It makes the following changes to the official image:
+This docker image modifies the official algod docker container found at https://hub.docker.com/r/algorand/algod to be used for the Voi MainNet Network. It makes the following changes to the official image:
 
 1. It sets the default network to voitest-v1 and enables Fast Catchup
 2. It updates the config.json by setting GossipFanout, DNSBootstrapID, and EnableCatchupFromArchiveServers
-3. It updates the genesis.json file to the Voi TestNet Network's Genesis file
+3. It updates the genesis.json file to the Voi MainNet Network's Genesis file
 4. Installs `jq` package to make bringing your account online a bit easier
 
 There are currently images built for the following two architectures. If you require a different architecture, please submit an github issue.
@@ -39,7 +39,6 @@ To make the container more resilient, launch the container using the parameter `
 docker run -d \
     --name my_voi_node \
     --restart=unless-stopped -d \
-    -e TELEMETRY_NAME=my_voi_node \
     -v ${PWD}/data:/algod/data \
     xarmian/voinode
 ```
